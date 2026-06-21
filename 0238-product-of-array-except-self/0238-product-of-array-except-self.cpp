@@ -1,23 +1,22 @@
 class Solution {
 public:
     vector<int> productExceptSelf(vector<int>& nums) {
-       
-    vector<int> result(nums.size());
-    
-    for(int i = 0; i < nums.size(); i++) {
-        int product = 1;
-        for(int j = 0; j < nums.size(); j++) {
-            if(i != j) {
-                product *= nums[j];
-            }
+        int n = nums.size();
+        vector<int> result(n);
+ 
+        result[0] = 1; 
+        for (int i = 1; i < n; i++) {
+            result[i] = result[i - 1] * nums[i - 1];
         }
-        result[i] = product;
+     
+        int right_product = 1;
+        for (int i = n - 1; i >= 0; i--) {
+            result[i] = result[i] * right_product;  
+            right_product *= nums[i];             
+        }
+        
+        return result;  
     }
-    
-    return result;
-}
-
-    
 };
 
 // Synced seamlessly with LeetHub Pro
