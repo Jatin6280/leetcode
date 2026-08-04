@@ -1,23 +1,14 @@
 class Solution {
 public:
     int search(vector<int>& nums, int target) {
-        int left = 0;
-        int right = nums.size() - 1;
+        auto it = lower_bound(nums.begin(), nums.end(), target);
         
-        while (left <= right) {
-            // Prevents potential integer overflow for massive indices
-            int mid = left + (right - left) / 2;
-            
-            if (nums[mid] == target) {
-                return mid; // Found the target, return its index
-            } else if (nums[mid] < target) {
-                left = mid + 1; // Target must be in the right half
-            } else {
-                right = mid - 1; // Target must be in the left half
-            }
+        // Check if the iterator is within bounds and actually points to the target
+        if (it != nums.end() && *it == target) {
+            return distance(nums.begin(), it);
         }
         
-        return -1; // Target not found
+        return -1;
     }
 };
 
