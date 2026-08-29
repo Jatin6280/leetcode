@@ -1,20 +1,16 @@
-     class Solution {
+class Solution {
 public:
     int maxProfit(vector<int>& prices) {
-        if (prices.empty()) return 0;
+        int s = prices.size();
+        int buy = prices[0];
+        int ans = 0;
 
-        int minPrice = prices[0];
-        int maxProf = 0;
-
-        for (int i = 1; i < prices.size(); i++) {
-            // Update the lowest buying price seen so far
-            minPrice = min(minPrice, prices[i]);
-            
-            // Calculate profit if we sold today, and update maxProf
-            maxProf = max(maxProf, prices[i] - minPrice);
+        for (int i = 1; i < s; i++) {
+            buy = min(buy, prices[i]);
+            ans = max(ans, prices[i] - buy);
         }
 
-        return maxProf;
+        return ans;
     }
 };
 
