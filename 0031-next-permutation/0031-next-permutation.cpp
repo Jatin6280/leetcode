@@ -1,32 +1,38 @@
-  class Solution {
+ class Solution {
 public:
     void nextPermutation(vector<int>& nums) {
-
         int n = nums.size();
-        int pivot = -1;
 
-        // Step 1: Find the pivot
-        for (int i = n - 2; i >= 0; i--) {
-            if (nums[i] < nums[i + 1]) {
-                pivot = i;
-                break;
-            }
+        // 1. Find pivot
+        int i = n - 2;
+
+        while (i >= 0 && nums[i] >= nums[i + 1]) {
+            i--;
         }
 
-        // Step 2: If pivot exists, find the next greater element and swap
-        if (pivot != -1) {
-            for (int i = n - 1; i > pivot; i--) {
-                if (nums[i] > nums[pivot]) {
-                    swap(nums[i], nums[pivot]);
-                    break;
-                }
+        // 2. If pivot exists, find element just greater than pivot
+        if (i >= 0) {
+            int j = n - 1;
+
+            while (nums[j] <= nums[i]) {
+                j--;
             }
+
+            swap(nums[i], nums[j]);
         }
 
-        // Step 3: Reverse the suffix
-        reverse(nums.begin() + pivot + 1, nums.end());
+        // 3. Reverse the part after pivot
+        int k = i + 1;
+        int j = n - 1;
+
+        while (k < j) {
+            swap(nums[k], nums[j]);
+            k++;
+            j--;
+        }
     }
 };
+
 
 // Synced seamlessly with LeetHub Pro
 // Pro features: https://bit.ly/leethubpro | Free version: https://bit.ly/leethubv4
