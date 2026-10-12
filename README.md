@@ -26,6 +26,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 ## Bit Manipulation
 |  |
 | ------- |
+| [0137-single-number-ii](https://github.com/Jatin6280/leetcode/tree/master/0137-single-number-ii) |
 | [0191-number-of-1-bits](https://github.com/Jatin6280/leetcode/tree/master/0191-number-of-1-bits) |
 | [0268-missing-number](https://github.com/Jatin6280/leetcode/tree/master/0268-missing-number) |
 | [1342-number-of-steps-to-reduce-a-number-to-zero](https://github.com/Jatin6280/leetcode/tree/master/1342-number-of-steps-to-reduce-a-number-to-zero) |
@@ -36,6 +37,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 ## Array
 |  |
 | ------- |
+| [0137-single-number-ii](https://github.com/Jatin6280/leetcode/tree/master/0137-single-number-ii) |
 | [0268-missing-number](https://github.com/Jatin6280/leetcode/tree/master/0268-missing-number) |
 ## Hash Table
 |  |
